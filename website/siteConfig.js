@@ -48,8 +48,6 @@ const siteConfig = {
   
   },
 
-  separateCss: ['static/toolbox/fdc3-workbench/static/css'],
-
   /* Custom fonts for website */
   /*
   fonts: {

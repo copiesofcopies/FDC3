@@ -6,6 +6,35 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+* Definition of the `icons` property of `AppMetadata`, based on PWA icon spec ([#319](https://github.com/finos/FDC3/pull/319))
+* Added support for raiseIntent without a context via the addition of the `fdc3.nothing` context type ([#375](https://github.com/finos/FDC3/pull/375))
+* Added [**FDC3 Workbench**](https://fdc3.finos.org/toolbox/fdc3-workbench/), an FDC3 API developer application ([#457](https://github.com/finos/FDC3/pull/457))
+* Added advice on how to `broadcast` complex context types, composed of other types, so that other apps can listen for both the complex type and simpler constituent types ([#464](https://github.com/finos/FDC3/pull/464))
+* `IntentResolution` now requires the name of the intent raised to included, allowing it to be used to determine the intent raised via `fdc3.raiseIntentForContext()`. ([#507](https://github.com/finos/FDC3/pull/507))
+
+### Changed
+* Consolidated `Listener` documentation with other types ([#404](https://github.com/finos/FDC3/pull/404))
+* Updated definition of the `Position` context type to support negative (short) positions ([#419](https://github.com/finos/FDC3/pull/419))
+* Upgraded web access statements from SHOULD to MUST in the API specification ([#440](https://github.com/finos/FDC3/pull/440))
+* Updated copyright notices ([#467](https://github.com/finos/FDC3/pull/467))
+* Adjusted wording in API spec and documentation to acknowledge the possibility of methods of intent resolution other than a resolver UI ([#461](https://github.com/finos/FDC3/pull/461))
+* Moved the Icon type definition into the Types documentation page for consistency with other types. ([#493](https://github.com/finos/FDC3/pull/493)
+* All DesktopAgent and Channel API functions are now async for consistency, changing the return type of the `broadcast`, `addIntentListener`, `addContextListener` and `getInfo` functions ([#516](https://github.com/finos/FDC3/pull/516))
+
+### Deprecated
+### Fixed
+* Removed trailing slashes from schema references (which break refs for schema parsers) ([#374](https://github.com/finos/FDC3/pull/374))
+* Corrected that definition of the `Context` type in documentation ([#406](https://github.com/finos/FDC3/pull/406)])
+* Corrected syntax errors in context schema examples ([#424](https://github.com/finos/FDC3/pull/424))
+* Corrected a minor error in the ViewQuote Intent example ([#439](https://github.com/finos/FDC3/pull/439))
+* Clarified behavior of `fdc3.addContextListener` when not joined to a channel ([#449](https://github.com/finos/FDC3/pull/449))
+* Clarified existing behavior of `joinChannel` and `addIntentListener` when joining a channel ([#454](https://github.com/finos/FDC3/pull/454))
+* Clarified numerous aspects of the existing `raiseIntent` behavior in the spec and documentation ([#461](https://github.com/finos/FDC3/pull/461))
+* Updated Methods.ts to support the updated signature for `addContextListener` introduced in FDC3 1.2 ([#462](https://github.com/finos/FDC3/pull/462))
+* Clarified that implementing `fdc3.getInfo()` is required for compliance with the FDC3 standard ([#515](https://github.com/finos/FDC3/pull/515))
+
+
 ## [npm v1.2.0] - 2021-04-19
 
 ### Added

@@ -111,7 +111,7 @@ export interface DesktopAgent {
    *  agent.broadcast(context);
    * ```
    */
-  broadcast(context: Context): void;
+  broadcast(context: Context): Promise<void>;
 
   /**
    * Raises an intent to the desktop agent to resolve.
@@ -137,18 +137,18 @@ export interface DesktopAgent {
   /**
    * Adds a listener for incoming Intents from the Agent.
    */
-  addIntentListener(intent: string, handler: ContextHandler): Listener;
+  addIntentListener(intent: string, handler: ContextHandler): Promise<Listener>;
 
   /**
    * Adds a listener for incoming context broadcast from the Desktop Agent.
    * @deprecated use `addContextListener(null, handler)` instead of `addContextListener(handler)`.
    */
-  addContextListener(handler: ContextHandler): Listener;
+  addContextListener(handler: ContextHandler): Promise<Listener>;
 
   /**
    * Adds a listener for the broadcast of a specific type of context object.
    */
-  addContextListener(contextType: string | null, handler: ContextHandler): Listener;
+  addContextListener(contextType: string | null, handler: ContextHandler): Promise<Listener>;
 
   /**
    * Retrieves a list of the System channels available for the app to join
@@ -193,5 +193,5 @@ export interface DesktopAgent {
    * the implemented version of the FDC3 specification and the name of the implementation
    * provider.
    */
-  getInfo(): ImplementationMetadata;
+  getInfo(): Promise<ImplementationMetadata>;
 }

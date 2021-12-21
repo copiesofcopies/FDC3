@@ -1,6 +1,6 @@
 // To parse this data:
 //
-//   import { Convert, Context, Contact, ContactList, Instrument, InstrumentList, Country, Organization, Portfolio, Position, Nothing } from "./file";
+//   import { Convert, Context, Contact, ContactList, Instrument, InstrumentList, Country, Organization, Portfolio, Position } from "./file";
 //
 //   const context = Convert.toContext(json);
 //   const contact = Convert.toContact(json);
@@ -11,7 +11,6 @@
 //   const organization = Convert.toOrganization(json);
 //   const portfolio = Convert.toPortfolio(json);
 //   const position = Convert.toPosition(json);
-//   const nothing = Convert.toNothing(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
@@ -103,10 +102,6 @@ export interface Position {
   name?: string;
 }
 
-export interface Nothing {
-  type: string;
-}
-
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
@@ -180,14 +175,6 @@ export class Convert {
 
   public static positionToJson(value: Position): string {
     return JSON.stringify(uncast(value, r('Position')), null, 2);
-  }
-
-  public static toNothing(json: string): Nothing {
-    return cast(JSON.parse(json), r('Nothing'));
-  }
-
-  public static nothingToJson(value: Nothing): string {
-    return JSON.stringify(uncast(value, r('Nothing')), null, 2);
   }
 }
 
@@ -440,5 +427,4 @@ const typeMap: any = {
     ],
     'any'
   ),
-  Nothing: o([{ json: 'type', js: 'type', typ: '' }], 'any'),
 };

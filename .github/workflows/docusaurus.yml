@@ -17,7 +17,6 @@ on:
       - '.github/workflows/docusaurus.yml'
       - 'docs/**'
       - 'website/**'
-      - 'toolbox/**'
 
 env:
 # Used by docusaurus publish-site command and comment-on-pr action
